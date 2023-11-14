@@ -38,7 +38,7 @@ class CompanyListingsViewModel @Inject constructor(
                     searchJob= viewModelScope.launch{
                         delay(500L)
                         getCompanyListings()
-                    }h
+                    }
 
             }
         }

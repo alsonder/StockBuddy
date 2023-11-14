@@ -30,9 +30,9 @@ provided via dependency injection.
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
-    val api: StockApi,
-    val db: StockDatabase
-    val companyListingsParser: CSVParser<CompanyListing>
+    private val api: StockApi,
+    private val db: StockDatabase,
+    private val companyListingsParser: CSVParser<CompanyListing>
 ): StockRepository {
     //It initializes a private property dao with the DAO (Data Access Object) obtained from the
     // StockDatabase
