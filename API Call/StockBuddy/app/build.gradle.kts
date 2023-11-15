@@ -4,6 +4,9 @@ plugins {
 
     // https://github.com/raamcosta/compose-destinations/blob/main/README.md
     id("com.google.devtools.ksp") version "1.9.20-1.0.14" // Depends on your kotlin version
+    kotlin("kapt")
+    id("com.google.dagger.hilt.android")
+
 }
 
 
@@ -40,9 +43,21 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.4"
+    }
 }
 
 dependencies {
+
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.48.1")
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -146,7 +161,10 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
+    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
+}
 
-
+kapt {
+    correctErrorTypes = true
 }
 

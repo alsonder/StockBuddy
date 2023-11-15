@@ -1,18 +1,18 @@
 package com.stockbuddy.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.*
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Shapes
-import androidx.compose.material3.darkColors
-import androidx.compose.material3.lightColors
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val DarkColorPalette = darkColors(
+
+private val darkColorPalette = darkColorScheme(
     primary = Color.Green,
-    background = DarkBlue,
+    background = Color.Blue,
     onPrimary = Color.DarkGray,
-    onBackground = TextWhite
+    onBackground = Color.White,
 )
 
 @Composable
@@ -21,7 +21,7 @@ fun StockBuddyTheme(
     content: @Composable () -> Unit
 ) {
     MaterialTheme(
-        colors = DarkColorPalette,
+        colors = darkColorPalette,
         typography = Typography,
         shapes = Shapes,
         content = content

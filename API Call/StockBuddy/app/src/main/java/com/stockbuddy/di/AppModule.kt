@@ -1,14 +1,20 @@
 package com.stockbuddy.di
 
-import com.stockbuddy.data.remote.dto.StockApi
+
+import android.app.Application
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import javax.inject.Singleton
+import com.stockbuddy.data.local.StockDatabase
+import com.stockbuddy.data.remote.dto.StockApi
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -25,7 +31,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideStockDatabase():StockDatabase{
+    fun provideStockDatabase(app:Application): StockDatabase {
         return Room.databaseBuilder(
             app,
             StockDatabase::class.java,
